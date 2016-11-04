@@ -1,0 +1,125 @@
+body{
+  background-color:black;
+}
+
+#modal{
+  display:none;
+  width:100%;
+  height:100%;
+  padding-top:38.9vmin;
+  left:0;
+  top:0;
+  z-index:1;
+  position:fixed;
+  overflow:auto;
+  background-color:rgb(153,254,254);
+  background-color:rgba(153,254,254,0.5);
+}
+
+#modal-content{
+  background-color:#f1f1f1;
+  margin:auto;
+  padding:0.5vmin;
+  overflow:hidden;
+  width:90%;
+  border:1px solid grey;
+  text-align:center;
+  font-size:10vmin;
+  position:relative;
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+}
+
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+#chooseX{
+  float:left;
+  margin-left:20%;
+  padding:0 6vmin;
+}
+
+#chooseO{
+  float:right;
+  margin-right:20%;
+  padding:0 6vmin;
+}
+
+#modal-content span:hover, span:focus{
+  cursor:pointer;
+  background-color:brown;
+  color:yellow !important; /*not working because the text inside the span tags is inside <p> tags*/
+}
+
+/*game board*/
+#box{
+  display:table;
+  border-collapse:collapse;
+  height:80vmin;
+  width:80vmin;
+  max-height:600px;
+  max-width:600px;
+  margin:0;
+  margin-top:150px;
+  margin-left:auto;
+  margin-right:auto;
+  background-color:black;
+  color:white;
+  text-align:center;
+  padding:0;
+}
+
+#rowA,#rowB,#rowC{
+  height:33.2%; /*if you don't specify a height for the rows the height gets modified when you add data to the cell (even when you add it with your JS code)*/
+  width:100%;
+  display:table-row;
+  background-color:;
+}
+
+#rowA,#rowB{
+  border-bottom:1px solid white;
+}
+
+.square{
+  width:32.3%;
+  display:table-cell;
+  vertical-align:middle;
+  font-family:monospace;
+}
+
+.square:hover{
+  cursor:pointer;
+}
+
+#A2,#B2,#C2{
+  border-left:1px solid white;
+  border-right:1px solid white;
+  background-color:;
+}
+
+#A1,#B1,#C1{
+  /* border-left:1px solid orange; *//*if i remove this the entire row disappears if i don't give a specific width to the square*/
+  /* border-right:1px solid orange;*/
+}
+
+p{
+  margin:0;
+  padding:0;padding-bottom:10px;
+  font-size:15vmin;
+/*   vertical-align:center; */
+/*   background-color:red; */
+  color:white;
+}
+
+h1{
+  text-align:center;
+  font-family:Helvetica;
+  color:white;
+}
