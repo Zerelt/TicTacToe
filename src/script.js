@@ -77,7 +77,7 @@ $(document).ready(function() {
         $(rnd).html("<p>" + o + "</p>");
         count=0;
         resultCheck();
-      } else { count=0; comp() }
+      } else { count=0; comp(); }
     } else if ( count < 2 && resultCheck() === false) {
       $('h1').text("It's a tie !");setTimeout(empty,2000);
     } else  {
