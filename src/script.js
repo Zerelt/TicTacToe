@@ -22,8 +22,8 @@ $(document).ready(function() {
 
   //reset
   function empty () {
-    $('.square').html(' ');
-    $('h1').text(" ");
+    $('.square').html('');
+    $('h1').text("");
   }
   //check if there are 3 in a row
   function check (a,b,c) {
@@ -64,7 +64,7 @@ $(document).ready(function() {
   //computer turn
   function comp() {
     for ( var i=0 ; i<arr.length ; i++ ) {
-      if ( $('#'+arr[i]).text()===" " ) {
+      if ( $('#'+arr[i]).text()==="" ) {
         count++;
       }
       // console.log(count);
@@ -73,7 +73,7 @@ $(document).ready(function() {
     // console.log(rnd);
 
     if ( count > 1 && resultCheck() === false ) {
-      if ( $(rnd).text()===" " ) {
+      if ( $(rnd).text()==="" ) {
         $(rnd).html("<p>" + o + "</p>");
         count=0;
         resultCheck();
