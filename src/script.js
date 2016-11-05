@@ -7,7 +7,7 @@ $(document).ready(function() {
 
   //modal window and user select marker
   function modalWindow () {
-    setTimeout($("#modal").css('display' , 'block'),500);
+    $("#modal").css('display' , 'block');
   }
   modalWindow();
   $('#chooseO').on('click', function () {
@@ -28,17 +28,19 @@ $(document).ready(function() {
   //check if there are 3 in a row
   function check (a,b,c) {
     if ($('#'+a).text()=== x && $('#'+b).text()=== x && $('#'+c).text()=== x) {
-      // console.log('Player "x" wins !');
+      console.log('Player "x" wins !');
       $('h1').text("Player "+x+" wins !");
       // setTimeout($('.square').html(' '),2000);
       return true;
     }
     if ($('#'+a).text()=== o && $('#'+b).text()=== o && $('#'+c).text()=== o) {
-      // console.log('Player "o" wins !');
+      console.log('Player "o" wins !');
       // setTimeout($('.square').html(' '),2000);
       $('h1').text("Player "+o+" wins !");
       return true;
     }
+    console.log('testing');
+    console.log(count);
       return false;
 
   }
@@ -53,9 +55,9 @@ $(document).ready(function() {
     var chk7 = check( arr[0],arr[4],arr[8] );
     var chk8 = check( arr[2],arr[4],arr[6] );
 
-    if (chk1 === true || chk2 === true ||  chk3 === true || chk4 === true || chk5 === true || chk6 ===true || chk7 === true || chk8 === true) {
+    if ((chk1 === true) || (chk2 === true) ||  (chk3 === true) || (chk4 === true) || (chk5 === true) || (chk6 ===true) || (chk7 === true) || (chk8 === true)) {
 
-      // setTimeout($('.square').html(' '),2000);
+      // setTimeout($('.square').html(' '),2000);doesn't work; using the empty function like below, instead of this works.
       setTimeout(empty,2000);
       return true;
     }
@@ -67,10 +69,10 @@ $(document).ready(function() {
       if ( $('#'+arr[i]).text()==="" ) {
         count++;
       }
-      // console.log(count);
+      console.log(count);
     }
     var rnd = "#" + arr[Math.floor(Math.random()*9)];
-    // console.log(rnd);
+    console.log(rnd);
 
     if ( count > 1 && resultCheck() === false ) {
       if ( $(rnd).text()==="" ) {
@@ -88,11 +90,11 @@ $(document).ready(function() {
   //user turn
   $(".square").click(function() {
     resultCheck();
+    console.log($(".square").html()+' works?');
     // console.log(resultCheck());
-    if ( $(this).html()===" " && resultCheck() === false ) {
+    if ( $(this).html()==="" && (resultCheck() === false )) {
       $(this).html("<p>" + x + "</p>");
       setTimeout(comp,500);
-      // resultCheck();
     }
   });
 
