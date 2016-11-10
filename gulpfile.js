@@ -4,12 +4,14 @@ var autoprefixer = require('gulp-autoprefixer');
 var cleanCSS = require('gulp-clean-css');
 var uglify = require('gulp-uglify');
 var pump = require('pump');
+var imagemin = require('gulp-imagemin');
 var watch = require('gulp-watch');
 
 var paths = {
   html:['src/*.html'],
   css:['src/*.css'],
   scripts: ['src/*.js'],
+  images: ['src/images/*'],
   dist:'dist/'
 };
 
@@ -37,6 +39,11 @@ gulp.task('uglify', function(cb){
   cb);
 });
 
+gulp.task('imagemin',function(){
+  gulp.src(paths.images)
+    .pipe(imagemin())
+    .pipe(gulp.dest('dist/images/'));
+});
 
 // Rerun the task when a file changes
 gulp.task('watch', function() {
@@ -46,4 +53,4 @@ gulp.task('watch', function() {
 });
 
 gulp.task('default', [/*'watch',*/ 'minify',
-  'minify-css', 'uglify']);
+  'minify-css', 'uglify', 'imagemin']);
